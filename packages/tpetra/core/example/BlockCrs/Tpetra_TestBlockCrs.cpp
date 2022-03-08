@@ -659,6 +659,13 @@ int main (int argc, char *argv[])
 
       } // end conversion timer
 
+      if (commWorld->getRank () == 0) {
+        std::cout << "DIMS (CRS)  = " << A_crs->getGlobalNumCols() << " x " << A_crs->getGlobalNumRows()
+                  << " : " << A_crs->getGlobalNumEntries() << std::endl;
+        std::cout << "DIMS (BCRS) = " << A_bcrs->getGlobalNumCols() << " x " << A_bcrs->getGlobalNumRows()
+                  << " : " << A_bcrs->getGlobalNumEntries() << std::endl;
+      }
+
       if (verbose) {
         A_crs->describe(*out, Teuchos::VERB_EXTREME);
       }
